@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>مدير كروت الواي فاي</title>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- شاشة الانتظار -->
   <div id="loader">
     <div class="loader-content">
       <div class="spinner"></div>
@@ -16,24 +15,21 @@
     </div>
   </div>
   <div id="toast" class="toast"></div>
-
-  <!-- ====== Authentication Section ====== -->
   <div id="auth-section" class="card center">
     <h2>تسجيل الدخول</h2>
     <input type="email" id="email" placeholder="البريد الإلكتروني" required autocomplete="username"/>
     <input type="password" id="password" placeholder="كلمة المرور" required autocomplete="current-password"/>
     <button id="login-btn">دخول</button>
     <button id="google-btn" style="background:#388e3c;">دخول بجوجل</button>
-    <div class="auth-alt">
+    <div style="margin-top:10px; font-size:15px;">
       <span>ليس لديك حساب؟</span>
       <button id="register-btn" style="background:#42a5f5;">إنشاء حساب جديد</button>
     </div>
-    <div class="auth-alt">
+    <div style="margin-top:8px;">
       <button id="forgot-btn" style="background:#ffd600; color:#333;">نسيت كلمة المرور؟</button>
     </div>
     <p id="auth-error" class="error"></p>
   </div>
-  <!-- ====== Register Modal ====== -->
   <div id="register-modal" class="modal">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('register-modal')">&times;</button>
@@ -47,7 +43,6 @@
       <p id="reg-error" class="error"></p>
     </div>
   </div>
-  <!-- ====== Forgot Password Modal ====== -->
   <div id="forgot-modal" class="modal">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal('forgot-modal')">&times;</button>
@@ -58,7 +53,6 @@
       <p id="forgot-error" class="error"></p>
     </div>
   </div>
-  <!-- ====== Main Section ====== -->
   <div id="main-section" style="display:none;">
     <header>
       <div class="header-info">
@@ -134,45 +128,42 @@
           <div id="transfer-report-table"></div>
         </div>
       </div>
-    </div>
-    <div id="categories-modal" class="modal">
-      <div class="modal-content">
-        <button class="modal-close" onclick="closeModal('categories-modal')">&times;</button>
-        <h3>إدارة فئات الكروت</h3>
-        <div id="categories-list"></div>
-        <input type="text" id="new-category" placeholder="إضافة فئة جديدة (رقم فقط)">
-        <button id="add-category-btn">إضافة فئة</button>
-        <div id="categories-error" class="error"></div>
-      </div>
-    </div>
-    <div id="permissions-modal" class="modal" style="display:none;">
-      <div class="modal-content perms-modal-custom">
-        <button class="modal-close" onclick="closeModal('permissions-modal')">&times;</button>
-        <h3>إدارة صلاحيات المستخدمين</h3>
-        <label for="users-select" style="display:block;margin-bottom:8px;">اختر المستخدم:</label>
-        <select id="users-select" class="perms-select"></select>
-        <div id="perms-section" style="display:none;">
-          <label style="margin-top:13px; margin-right:2px;">الصلاحيات:</label>
-          <ul id="perms-list" class="perms-list"></ul>
-          <button id="save-perms-btn" class="perms-save-btn" style="margin-top:16px;">حفظ</button>
-          <span id="perm-result" class="error"></span>
+      <div id="categories-modal" class="modal">
+        <div class="modal-content">
+          <button class="modal-close" onclick="closeModal('categories-modal')">&times;</button>
+          <h3>إدارة فئات الكروت</h3>
+          <div id="categories-list"></div>
         </div>
       </div>
-    </div>
-    <div id="transfer-modal" class="modal">
-      <div class="modal-content">
-        <button class="modal-close" onclick="closeModal('transfer-modal')">&times;</button>
-        <h3>تحويل رصيد</h3>
-        <input type="text" id="transfer-acc" placeholder="رقم الحساب المحول إليه"/>
-        <input type="number" id="transfer-amount" placeholder="المبلغ"/>
-        <button id="transfer-btn-modal">تحويل</button>
-        <span id="transfer-result" class="error"></span>
-        <button id="show-transfer-report" style="margin-top:8px;">تقرير التحويلات</button>
+      <div id="permissions-modal" class="modal" style="display:none;">
+        <div class="modal-content perms-modal-custom">
+          <button class="modal-close" onclick="closeModal('permissions-modal')">&times;</button>
+          <h3>إدارة صلاحيات المستخدمين</h3>
+          <label for="users-select" style="display:block;margin-bottom:8px;">اختر المستخدم:</label>
+          <select id="users-select" class="perms-select"></select>
+          <div id="perms-section" style="display:none;">
+            <label style="margin-top:13px; margin-right:2px;">الصلاحيات:</label>
+            <ul id="perms-list" class="perms-list"></ul>
+            <button id="save-perms-btn" class="perms-save-btn" style="margin-top:16px;">حفظ</button>
+            <span id="perm-result" class="error"></span>
+          </div>
+        </div>
+      </div>
+      <div id="transfer-modal" class="modal">
+        <div class="modal-content">
+          <button class="modal-close" onclick="closeModal('transfer-modal')">&times;</button>
+          <h3>تحويل رصيد</h3>
+          <input type="text" id="transfer-acc" placeholder="رقم الحساب المحول إليه"/>
+          <input type="number" id="transfer-amount" placeholder="المبلغ"/>
+          <button id="transfer-btn-modal">تحويل</button>
+          <span id="transfer-result" class="error"></span>
+          <button id="show-transfer-report" style="margin-top:8px;">تقرير التحويلات</button>
+        </div>
       </div>
     </div>
   </div>
   <footer>
-      تطوير <b>محمد علي حيدره</b> &copy;2025 | 733228635
+      تطوير محمد علي حيدره ©2025 | 733228635
       <a href="https://haidara695.github.io/alam-altafidat-online/" target="_blank">تواصل مع المطور</a>
   </footer>
   <script type="module" src="main.js"></script>
