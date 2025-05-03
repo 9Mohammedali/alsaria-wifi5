@@ -90,11 +90,7 @@ async function updateStats() {
   stats.innerHTML = "";
   categories.forEach(cat => {
     const count = cardsData[cat].length;
-    stats.innerHTML += `
-      <div class="stat-circle ${colors[cat]||'f100'}">
-        <div class="circle-cat">${cat}</div>
-        <div class="circle-count">${count}</div>
-      </div>`;
+    stats.innerHTML += `<div class="stat-circle ${colors[cat]||'f100'}">${cat}<br><span>${count}</span></div>`;
   });
 }
 
@@ -358,7 +354,6 @@ document.getElementById('users-select').onchange = function() {
   });
   document.getElementById('perms-section').style.display = "";
 
-  // تفعيل/تعطيل الصلاحية بالضغط
   Array.from(permsList.children).forEach(li=>{
     li.onclick = function() {
       if(this.classList.contains('active')) {
